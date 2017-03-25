@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+       
+       <bean id="before" class="test.ex01.advice.BeforeAdvice" />
+       <bean id="after" class="test.ex01.advice.AfterAdvice" />
+       <bean id="throw" class="test.ex01.advice.ThrowAdvice" />
+       <bean id="around" class="test.ex01.advice.AroundAdvice" />
+    
+
+       <aop:config>
+       	<aop:pointcut  id="pc" expression="execution(public * test.ex01.controller..*(..))" />
+       	<aop:aspect id="beforeadvice" ref="before">
+       		<aop:before pointcut-ref="pc" method="hello" />
+       	</aop:aspect>
+       	<aop:aspect id="afterreturnadvice" ref="after">
+       		<aop:after-returning pointcut-ref="pc" method="helloReturn" />
+       	</aop:aspect>
+       	<aop:aspect id="throwadvice" ref="throw">
+       		<aop:after-throwing pointcut-ref="pc" method="hello" throwing="ex" />
+       	</aop:aspect>
+       	<aop:aspect id="afteradvice" ref="after">
+       		<aop:after pointcut-ref="pc" method="helloAfter"  />
+       	</aop:aspect>
+       	<aop:aspect id="aroundadvice" ref="around">
+       		<aop:around pointcut-ref="pc" method="helloAround" />
+       	</aop:aspect>
+       	
+       </aop:config>
+       
+       <bean id="rm" class="test.ex01.controller.RunMain" />
+</beans>

@@ -1,0 +1,8 @@
+CREATE TABLE PLAYER(
+    PLAYER_ID number PRIMARY KEY,
+    NAME VARCHAR2(255) NOT NULL,
+	TEAM_ID number NOT NULL,
+	constraint team_id_fk FOREIGN KEY(TEAM_ID) REFERENCES TEAM(TEAM_ID)
+);
+
+create sequence PLAYER_ID_seq;;
