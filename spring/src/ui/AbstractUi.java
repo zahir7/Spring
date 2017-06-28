@@ -9,10 +9,10 @@ public abstract class AbstractUi {
     protected String getInputedString() {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         try {
-            //ÄÜ¼Ö¿¡ÀÇ ÀÔ·Â¸¦ Ãëµæ
+            //ì½˜ì†”ì—ì˜ ì…ë ¥ë¥¼ ì·¨ë“
             return input.readLine();
         } catch (IOException e) {
-        	return "¿¹¿Ü¹ß»ı";
+        	return "ì˜ˆì™¸ë°œìƒ";
         }
     }
 

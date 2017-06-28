@@ -6,13 +6,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class MenuUi extends AbstractUiTemplate {
 
     private SelectTeamUi selectTeamUi;
-    //»õ·Ó°Ô Ãß°¡µÊ
+    //ìƒˆë¡­ê²Œ ì¶”ê°€ë¨
     private InsertPlayerUi insertPlayerUi;
     
     public void setSelectTeamUi(SelectTeamUi selectTeamUi) {
          this.selectTeamUi = selectTeamUi;
     }
-    //»õ·Ó°Ô Ãß°¡µÊ
+    //ìƒˆë¡­ê²Œ ì¶”ê°€ë¨
     public void setInsertPlayerUi(InsertPlayerUi insertPlayerUi) {
         this.insertPlayerUi = insertPlayerUi;
     }
@@ -20,18 +20,18 @@ public class MenuUi extends AbstractUiTemplate {
     protected void showMenu() {
     	System.out.println("");
         System.out.println("--------------------");
-        System.out.println("1.Á¾·á");
-        System.out.println("2.ÆÀ ÀüÃ¼ ¸®½ºÆ®");
-        System.out.println("3.¼±¼ö Á¤º¸ Ãß°¡");
-        System.out.println("4.ÆÀº° ¼±¼öÁ¤º¸");
-        System.out.println("5.»èÁ¦ Á¤»ó¹Î");
+        System.out.println("1.ì¢…ë£Œ");
+        System.out.println("2.íŒ€ ì „ì²´ ë¦¬ìŠ¤íŠ¸");
+        System.out.println("3.ì„ ìˆ˜ ì •ë³´ ì¶”ê°€");
+        System.out.println("4.íŒ€ë³„ ì„ ìˆ˜ì •ë³´");
+        System.out.println("5.ì‚­ì œ ì •ìƒë¯¼");
         System.out.println("");
-        System.out.println("¹øÈ£¸¦ ÀÔ·ÂÇÏ°í Enter¸¦ ´­·¯ ÁÖ½Ê½Ã¿À.");
+        System.out.println("ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ê³  Enterë¥¼ ëˆŒëŸ¬ ì£¼ì‹­ì‹œì˜¤.");
     }
     
 
     protected int getMaxMenuNumber() {
-        return 3;   //º¯°æµÊ
+        return 3;   //ë³€ê²½ë¨
     }
 
     protected int getMinMenuNumber() {
@@ -42,15 +42,15 @@ public class MenuUi extends AbstractUiTemplate {
     	System.out.println("execute");
         switch (number) {
         case 1:
-            //1.Á¾·á
-            System.out.println("ÇÁ·Î±×·¥ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.");
+            //1.ì¢…ë£Œ
+            System.out.println("í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
             System.exit(0);
         case 2:
-            //2.ÆÀ ¸®½ºÆ®
+            //2.íŒ€ ë¦¬ìŠ¤íŠ¸
             this.selectTeamUi.show();
             break;
         case 3:
-            //3.¼±¼öÃß°¡
+            //3.ì„ ìˆ˜ì¶”ê°€
             this.insertPlayerUi.show();
             break;
             
@@ -63,7 +63,7 @@ public class MenuUi extends AbstractUiTemplate {
     }
 
     public static void main(String[] args) {
-        //Spring ¼³Á¤ ÆÄÀÏ ÀĞ¾î µéÀÓ
+        //Spring ì„¤ì • íŒŒì¼ ì½ì–´ ë“¤ì„
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         MenuUi menuUi = (MenuUi) context.getBean("menuUi");
         while (true) {
@@ -71,12 +71,3 @@ public class MenuUi extends AbstractUiTemplate {
         }
     }
 }
-
-
-
-
-
-
-
-
-

@@ -8,7 +8,7 @@
     <!-- JDBC드라이버클래스명 설정 -->
 	
 		<property name="driverClassName">
-			<value>oracle.jdbc.driver.OracleDriver</value>
+			<value>com.mysql.jdbc.Driver</value>
 		</property>
 
 		<!-- 데이터베이스 파일의 위치 설정 -->
@@ -18,12 +18,12 @@
 
 		<!-- MySQL의 사용자 계정 설정  -->		
 		<property name="username">
-			<value>com</value>
+			<value>scott</value>
 		</property>
 
 		<!-- MySQL의 사용자 패스워드 설정  -->
 		<property name="password">
-			<value>com</value>
+			<value>tiger</value>
 		</property>
 	</bean>
 

@@ -17,15 +17,15 @@ public class SelectTeamUi extends AbstractUi {
 
     public void show() {
         showTeamList(this.teamDao.getTeamList());
-        System.out.println("Enter¸¦ ´­·¯ ÁÖ½Ê½Ã¿À.");
+        System.out.println("Enterë¥¼ ëˆŒëŸ¬ ì£¼ì‹­ì‹œì˜¤.");
         getInputedString();
     }
 
     protected void showTeamList(List teamList) {
         System.out.println("--------------------");
-        System.out.println("     ÆÀ   °ü ¸® ");
+        System.out.println("     íŒ€   ê´€ ë¦¬ ");
         System.out.println("");
-        System.out.println("ID  ÆÀ ¸í");
+        System.out.println("ID  íŒ€ ëª…");
         for (Iterator iter = teamList.iterator(); iter.hasNext();) {
             Team team = (Team) iter.next();
             System.out.println(team.getId() + "  " + team.getName());

@@ -23,21 +23,21 @@ public class InsertPlayerUi extends AbstractUi {
     }
 
     public void show() {
-        final String playerName = "¼±¼ö ÀÌ¸§";
-        //¸Ş´º·Î µ¹¾Æ°¨
+        final String playerName = "ì„ ìˆ˜ ì´ë¦„";
+        //ë©”ë‰´ë¡œ ëŒì•„ê°
         showMenu(playerName);
-        //ÄÜ¼Ö·ÎÀÇ ÀÔ·Â Ãëµæ
+        //ì½˜ì†”ë¡œì˜ ì…ë ¥ ì·¨ë“
         String name = getInputedString();
-        //¹®ÀÚ¿­ÀÌ ÀÔ·ÂµÇ¾î ÀÖÀº°¡
+        //ë¬¸ìì—´ì´ ì…ë ¥ë˜ì–´ ìˆì€ê°€
         if (StringUtils.isEmpty(name)) {
-            //¸Ş´º·Î µ¹¾Æ°¨
+            //ë©”ë‰´ë¡œ ëŒì•„ê°
             return;
-        //128¹®ÀÚ ÀÌÇÏÀÎ°¡
+        //128ë¬¸ì ì´í•˜ì¸ê°€
         } else if (UiUtils.isSmallLength(name, playerName, 128)) {
-            //»õ·Î¿î ¼±¼ö¸¦ »ı¼º
+            //ìƒˆë¡œìš´ ì„ ìˆ˜ë¥¼ ìƒì„±
             Player player = new Player();
             player.setName(name);
-            //ÆÀ °áÁ¤
+            //íŒ€ ê²°ì •
             showTeamField(player);
         } else {
             show();
@@ -45,36 +45,36 @@ public class InsertPlayerUi extends AbstractUi {
     }
 
     protected void showTeamField(Player player) {
-        final String teamId = "ÆÀ ID";
-        //¸Ş´º·Î µ¹¾Æ°¨
+        final String teamId = "íŒ€ ID";
+        //ë©”ë‰´ë¡œ ëŒì•„ê°
         showMenu(teamId);
-        //ÄÜ¼Ö·ÎÀÇ ÀÔ·Â Ãëµæ
+        //ì½˜ì†”ë¡œì˜ ì…ë ¥ ì·¨ë“
         String id = getInputedString();
-        //¹®ÀÚ¿­ÀÌ ÀÔ·ÂµÇ¾î ÀÖ´Â°¡
+        //ë¬¸ìì—´ì´ ì…ë ¥ë˜ì–´ ìˆëŠ”ê°€
         if (StringUtils.isEmpty(id)) {
             return;
-         //¼öÄ¡ÀÎ°¡
+         //ìˆ˜ì¹˜ì¸ê°€
         } else if (UiUtils.isNumeric(id, teamId)) {
-            //ID·Î ÆÀÀ» °Ë»ö
+            //IDë¡œ íŒ€ì„ ê²€ìƒ‰
             Team team = this.teamDao.getTeam(Integer.valueOf(id));
             if (team == null) {
-                //ÇØ´çÇÏ´Â ÆÀÀº Á¸ÀçÇÏÁö ¾ÊÀ½
-                System.out.println("ÀÔ·ÂµÈ ÆÀ¸í¡¸" + id + "¡¹ÀÇ ÆÀÀº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+                //í•´ë‹¹í•˜ëŠ” íŒ€ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŒ
+                System.out.println("ì…ë ¥ëœ íŒ€ëª…ã€Œ" + id + "ã€ì˜ íŒ€ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
                 showTeamField(player);
             } else {
-                //ÆÀÀ» ¼±¼ö¿¡ ¼ÂÆ®
+                //íŒ€ì„ ì„ ìˆ˜ì— ì…‹íŠ¸
                 player.setTeam(team);
-                //µ¥ÀÌÅÍº£ÀÌ½º·Î ¼±¼ö¸¦ µî·Ï
+                //ë°ì´í„°ë² ì´ìŠ¤ë¡œ ì„ ìˆ˜ë¥¼ ë“±ë¡
                 playerDao.insertPlayer(player);
-                System.out.println("ÆÀ ¡¸" + team.getName() + "¡¹¿¡ ¡¸" + player.getName() + "¡¹¼±¼ö¸¦ Ãß°¡Çß½À´Ï´Ù.");
+                System.out.println("íŒ€ ã€Œ" + team.getName() + "ã€ì— ã€Œ" + player.getName() + "ã€ì„ ìˆ˜ë¥¼ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤.");
             }
         }
     }
 
     protected void showMenu(String wanted) {
         System.out.println("--------------------");
-        System.out.println(wanted + "À» ÀÔ·ÂÇÏ°í Enter¸¦ ´­·¯ ÁÖ½Ê½Ã¿À.");
-        System.out.println("¾Æ¹«°Íµµ ÀÔ·ÂÇÏÁö ¾Ê°í Enter¸¦ ´©¸£¸é ¸Ş´º·Î µ¹¾Æ°©´Ï´Ù.");
+        System.out.println(wanted + "ì„ ì…ë ¥í•˜ê³  Enterë¥¼ ëˆŒëŸ¬ ì£¼ì‹­ì‹œì˜¤.");
+        System.out.println("ì•„ë¬´ê²ƒë„ ì…ë ¥í•˜ì§€ ì•Šê³  Enterë¥¼ ëˆ„ë¥´ë©´ ë©”ë‰´ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.");
     }
 }
 

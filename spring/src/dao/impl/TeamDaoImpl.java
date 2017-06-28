@@ -19,9 +19,9 @@ import dao.TeamDao;
 public class TeamDaoImpl extends JdbcDaoSupport implements TeamDao {
 	@Override
 	public List getTeamList() throws DataAccessException {
-	    //Äİ¹éÀÎÅÍÆäÀÌ½º »ı¼º
+	    //ì½œë°±ì¸í„°í˜ì´ìŠ¤ ìƒì„±
         RowMapper rowMapper = new TeamRowMapper();
-        //SQL½ÇÇà
+        //SQLì‹¤í–‰
         return getJdbcTemplate().query("SELECT team_id, name FROM team", rowMapper);
     }
 
@@ -34,7 +34,7 @@ public class TeamDaoImpl extends JdbcDaoSupport implements TeamDao {
         }
 
         public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-           //ResultSet¿¡¼­ ¿ÀºêÁ§Æ®·Î ´Ù½Ã Ã¤¿ö³ÖÀ½
+           //ResultSetì—ì„œ ì˜¤ë¸Œì íŠ¸ë¡œ ë‹¤ì‹œ ì±„ì›Œë„£ìŒ
             Team team = new Team();
             team.setId(rs.getInt("team_id"));
             team.setName(rs.getString("name"));            
@@ -68,9 +68,9 @@ public class TeamDaoImpl extends JdbcDaoSupport implements TeamDao {
     protected class TeamResultSetExtractor implements ResultSetExtractor {
 
         public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
-            //SQL °á°ú°¡ Àû¾îµµ 1°Ç ÀÖÀ»±î
+            //SQL ê²°ê³¼ê°€ ì ì–´ë„ 1ê±´ ìˆì„ê¹Œ
             if (rs.next()) {
-                //ResultSet¿¡¼­ ¿ÀºêÁ§Æ®¿¡ ¹Ù²ã Ã¤¿ò
+                //ResultSetì—ì„œ ì˜¤ë¸Œì íŠ¸ì— ë°”ê¿” ì±„ì›€
                 Team team = new Team();
                 team.setId(rs.getInt("team_id"));
                 team.setName(rs.getString("name"));
@@ -81,15 +81,4 @@ public class TeamDaoImpl extends JdbcDaoSupport implements TeamDao {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 

@@ -6,13 +6,13 @@ import org.apache.commons.lang.math.NumberUtils;
 public abstract class AbstractUiTemplate extends AbstractUi {
 
     public void show() {
-       //¸Ş´º¸¦ Ç¥½Ã
+       //ë©”ë‰´ë¥¼ í‘œì‹œ
         showMenu();
-        //ÄÜ¼Ö¿¡ÀÇ ÀÔ·ÂÀ» Ãëµæ
+        //ì½˜ì†”ì—ì˜ ì…ë ¥ì„ ì·¨ë“
         String inputedString = getInputedString();
-        //ÀÔ·Â¹®ÀÚ¿­ÀÇ °ËÁõ
+        //ì…ë ¥ë¬¸ìì—´ì˜ ê²€ì¦
         if (isValidNumber(inputedString)) {
-            //Ã³¸®¸¦ ½ÇÇà
+            //ì²˜ë¦¬ë¥¼ ì‹¤í–‰
             execute(NumberUtils.toInt(inputedString));
         }     
     }
@@ -26,16 +26,16 @@ public abstract class AbstractUiTemplate extends AbstractUi {
     abstract protected void execute(int number);
 
     protected boolean isValidNumber(String str) {        
-        //¹®ÀÚ¿­ÀÌ ÀÔ·ÂµÇ¾î ÀÖ´Â°¡
+        //ë¬¸ìì—´ì´ ì…ë ¥ë˜ì–´ ìˆëŠ”ê°€
         if (StringUtils.isBlank(str)) {
             return false;
-        //¼öÄ¡ÀÎ°¡
+        //ìˆ˜ì¹˜ì¸ê°€
         } else if (!StringUtils.isNumeric(str)) {
             return false;
         }
-        //¼öÄ¡ÀÌ¹Ç·Î int·Î º¯È¯
+        //ìˆ˜ì¹˜ì´ë¯€ë¡œ intë¡œ ë³€í™˜
         int number = NumberUtils.toInt(str);
-        //¼öÄ¡°¡ ¸Ş´º·Î Ç¥½ÃµÇ¾î ÀÖ´Â ¹øÈ£ÀÇ ¹üÀ§ÀÎ°¡
+        //ìˆ˜ì¹˜ê°€ ë©”ë‰´ë¡œ í‘œì‹œë˜ì–´ ìˆëŠ” ë²ˆí˜¸ì˜ ë²”ìœ„ì¸ê°€
         if (getMinMenuNumber() <= number && number <= getMaxMenuNumber()) {
             return true;
         }

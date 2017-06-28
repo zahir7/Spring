@@ -11,16 +11,16 @@ public class UiUtils {
         }
 
         if (length < name.length()) {
-            System.out.println(fieldName + "´Â" + length + "¹®ÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À.");
+            System.out.println(fieldName + "ëŠ”" + length + "ë¬¸ìž ì´í•˜ë¡œ ìž…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤.");
             return false;
         }
         return true;
     }
 
     public static boolean isNumeric(String str, String fieldName) {
-    	//¼öÄ¡ÀÎ°¡
+    	//ìˆ˜ì¹˜ì¸ê°€
         if (!StringUtils.isNumeric(str)) {
-            System.out.println(fieldName + "´Â ¼ýÀÚ·Î ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À.");
+            System.out.println(fieldName + "ëŠ” ìˆ«ìžë¡œ ìž…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤.");
             return false;
         }
         return true;

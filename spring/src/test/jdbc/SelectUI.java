@@ -17,15 +17,15 @@ public class SelectUI extends AbstractUi {
 
     public void show() {
         showUserList(this.dao.getUserList());
-        System.out.println("Enter¸¦ ´­·¯ ÁÖ½Ê½Ã¿À.");
+        System.out.println("Enterë¥¼ ëˆŒëŸ¬ ì£¼ì‹­ì‹œì˜¤.");
         getInputedString();
     }
 
     protected void showUserList(List userList) {
         System.out.println("--------------------");
-        System.out.println("     User   °ü ¸® ");
+        System.out.println("     User   ê´€ ë¦¬ ");
         System.out.println("");
-        System.out.println("ID  User ¸í");
+        System.out.println("ID  User ëª…");
         for (Iterator iter = userList.iterator(); iter.hasNext();) {
             UserDTO user = (UserDTO) iter.next();
             System.out.println(user.getNum() + "  " + user.getName()+" "+user.getReg());

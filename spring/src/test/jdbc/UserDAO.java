@@ -15,7 +15,7 @@ public class UserDAO extends JdbcDaoSupport implements DAO {
 	@Override
 	public List getUserList() throws DataAccessException {
 		 RowMapper rowMapper = new UserRowMapper();
-	        //SQL½ÇÇà
+	        //SQLì‹¤í–‰
 	     return getJdbcTemplate().query("select * from test", rowMapper);
 	}
 
@@ -33,7 +33,7 @@ public class UserDAO extends JdbcDaoSupport implements DAO {
         }
 
         public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-           //ResultSet¿¡¼­ ¿ÀºêÁ§Æ®·Î ´Ù½Ã Ã¤¿ö³ÖÀ½
+           //ResultSetì—ì„œ ì˜¤ë¸Œì íŠ¸ë¡œ ë‹¤ì‹œ ì±„ì›Œë„£ìŒ
             UserDTO user = new UserDTO();
             user.setNum(rs.getInt("num"));
             user.setName(rs.getString("name"));
